@@ -8,38 +8,64 @@
 
 /* Begin PBXBuildFile section */
 		2B77B70D7063461BE20108D1 /* Pods_E_book.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 52CCC221946F0A766DDEB9E3 /* Pods_E_book.framework */; };
-		EB01CADD2C415F0B0051935E /* UIButton+Bordered.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB01CADC2C415F0B0051935E /* UIButton+Bordered.swift */; };
-		EB01CADF2C415F170051935E /* UIButton+Filled.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB01CADE2C415F170051935E /* UIButton+Filled.swift */; };
+		EB01CADD2C415F0B0051935E /* UIButton+UIBorderedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB01CADC2C415F0B0051935E /* UIButton+UIBorderedButton.swift */; };
+		EB01CADF2C415F170051935E /* UIButton+UIFilledButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB01CADE2C415F170051935E /* UIButton+UIFilledButton.swift */; };
 		EB2B8F342BD2A5240024E485 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B8F332BD2A5240024E485 /* AppDelegate.swift */; };
 		EB2B8F3D2BD2A5250024E485 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EB2B8F3C2BD2A5250024E485 /* Assets.xcassets */; };
 		EB2B8F402BD2A5250024E485 /* Base in Resources */ = {isa = PBXBuildFile; fileRef = EB2B8F3F2BD2A5250024E485 /* Base */; };
-		EB2B8F4C2BD2A5720024E485 /* SessionDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B8F4B2BD2A5720024E485 /* SessionDelegate.swift */; };
 		EB2B8F542BD2A5B90024E485 /* WelcomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB2B8F532BD2A5B90024E485 /* WelcomeViewController.swift */; };
 		EB3304492C340F7F00102F71 /* Welcome.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB3304482C340F7F00102F71 /* Welcome.swift */; };
 		EB33044B2C340FB000102F71 /* WelcomeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB33044A2C340FB000102F71 /* WelcomeViewModel.swift */; };
+		EB41AD0E2C463F0900564A1D /* LoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB41AD0D2C463F0900564A1D /* LoginViewController.swift */; };
+		EB41AD102C46419800564A1D /* CustomNavigationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB41AD0F2C46419800564A1D /* CustomNavigationController.swift */; };
 		EB4B39EF2C1C573C00EFEFD0 /* APICaller.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB4B39EE2C1C573C00EFEFD0 /* APICaller.swift */; };
+		EB5640822C46582D0082FCE4 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = EB5640812C46582D0082FCE4 /* GoogleService-Info.plist */; };
+		EB62A32E2C48E3C40068FD7B /* UIViewController+HideKeyboard.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB62A32D2C48E3C40068FD7B /* UIViewController+HideKeyboard.swift */; };
+		EB62A3312C48F8440068FD7B /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB62A3302C48F8440068FD7B /* LoginViewModel.swift */; };
+		EB62A3332C4925160068FD7B /* Login.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB62A3322C4925160068FD7B /* Login.swift */; };
+		EB62A3362C49274C0068FD7B /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB62A3352C49274C0068FD7B /* HomeViewController.swift */; };
+		EB62A3382C49299D0068FD7B /* UIActivityIndicatorView+Spinner.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB62A3372C49299D0068FD7B /* UIActivityIndicatorView+Spinner.swift */; };
+		EB62A33A2C492C810068FD7B /* ForgotPasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB62A3392C492C810068FD7B /* ForgotPasswordViewController.swift */; };
+		EB62A33C2C493D2F0068FD7B /* ForgotPasswordViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB62A33B2C493D2F0068FD7B /* ForgotPasswordViewModel.swift */; };
+		EB62A3402C4940550068FD7B /* RegisterViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB62A33F2C4940550068FD7B /* RegisterViewController.swift */; };
+		EB62A3422C4947D00068FD7B /* UITapGestureRecognizer+didTapAttributedTextInLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB62A3412C4947D00068FD7B /* UITapGestureRecognizer+didTapAttributedTextInLabel.swift */; };
 		EB678EC52C36C3570034C893 /* UIViewController+Alert.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB678EC42C36C3570034C893 /* UIViewController+Alert.swift */; };
 		EB678EC72C36CCBC0034C893 /* String+Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB678EC62C36CCBC0034C893 /* String+Height.swift */; };
+		EB8450242C468EBC00C2E157 /* UILabel+UIAccountLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8450232C468EBC00C2E157 /* UILabel+UIAccountLabel.swift */; };
+		EB8450262C46939700C2E157 /* UITextField+UIAccountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8450252C46939700C2E157 /* UITextField+UIAccountTextField.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
 		15683100F1CD3BAF77C111D7 /* Pods-E-book.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-E-book.release.xcconfig"; path = "Target Support Files/Pods-E-book/Pods-E-book.release.xcconfig"; sourceTree = "<group>"; };
 		52CCC221946F0A766DDEB9E3 /* Pods_E_book.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_E_book.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		83A8C4BB0AE3B15EEE0A50B4 /* Pods-E-book.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-E-book.debug.xcconfig"; path = "Target Support Files/Pods-E-book/Pods-E-book.debug.xcconfig"; sourceTree = "<group>"; };
-		EB01CADC2C415F0B0051935E /* UIButton+Bordered.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Bordered.swift"; sourceTree = "<group>"; };
-		EB01CADE2C415F170051935E /* UIButton+Filled.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+Filled.swift"; sourceTree = "<group>"; };
+		EB01CADC2C415F0B0051935E /* UIButton+UIBorderedButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+UIBorderedButton.swift"; sourceTree = "<group>"; };
+		EB01CADE2C415F170051935E /* UIButton+UIFilledButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton+UIFilledButton.swift"; sourceTree = "<group>"; };
 		EB2B8F302BD2A5240024E485 /* E-book.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "E-book.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		EB2B8F332BD2A5240024E485 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		EB2B8F3C2BD2A5250024E485 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EB2B8F3F2BD2A5250024E485 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		EB2B8F412BD2A5250024E485 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		EB2B8F4B2BD2A5720024E485 /* SessionDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SessionDelegate.swift; sourceTree = "<group>"; };
 		EB2B8F532BD2A5B90024E485 /* WelcomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewController.swift; sourceTree = "<group>"; };
 		EB3304482C340F7F00102F71 /* Welcome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Welcome.swift; sourceTree = "<group>"; };
 		EB33044A2C340FB000102F71 /* WelcomeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WelcomeViewModel.swift; sourceTree = "<group>"; };
+		EB41AD0D2C463F0900564A1D /* LoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewController.swift; sourceTree = "<group>"; };
+		EB41AD0F2C46419800564A1D /* CustomNavigationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomNavigationController.swift; sourceTree = "<group>"; };
 		EB4B39EE2C1C573C00EFEFD0 /* APICaller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APICaller.swift; sourceTree = "<group>"; };
+		EB5640812C46582D0082FCE4 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		EB62A32D2C48E3C40068FD7B /* UIViewController+HideKeyboard.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+HideKeyboard.swift"; sourceTree = "<group>"; };
+		EB62A3302C48F8440068FD7B /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
+		EB62A3322C4925160068FD7B /* Login.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Login.swift; sourceTree = "<group>"; };
+		EB62A3352C49274C0068FD7B /* HomeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
+		EB62A3372C49299D0068FD7B /* UIActivityIndicatorView+Spinner.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIActivityIndicatorView+Spinner.swift"; sourceTree = "<group>"; };
+		EB62A3392C492C810068FD7B /* ForgotPasswordViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewController.swift; sourceTree = "<group>"; };
+		EB62A33B2C493D2F0068FD7B /* ForgotPasswordViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ForgotPasswordViewModel.swift; sourceTree = "<group>"; };
+		EB62A33F2C4940550068FD7B /* RegisterViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewController.swift; sourceTree = "<group>"; };
+		EB62A3412C4947D00068FD7B /* UITapGestureRecognizer+didTapAttributedTextInLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITapGestureRecognizer+didTapAttributedTextInLabel.swift"; sourceTree = "<group>"; };
 		EB678EC42C36C3570034C893 /* UIViewController+Alert.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController+Alert.swift"; sourceTree = "<group>"; };
 		EB678EC62C36CCBC0034C893 /* String+Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Height.swift"; sourceTree = "<group>"; };
+		EB8450232C468EBC00C2E157 /* UILabel+UIAccountLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+UIAccountLabel.swift"; sourceTree = "<group>"; };
+		EB8450252C46939700C2E157 /* UITextField+UIAccountTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+UIAccountTextField.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,6 +124,7 @@
 				EB2B8F482BD2A5430024E485 /* Extensions */,
 				EB2B8F472BD2A52C0024E485 /* Resources */,
 				EB2B8F412BD2A5250024E485 /* Info.plist */,
+				EB5640812C46582D0082FCE4 /* GoogleService-Info.plist */,
 			);
 			path = "E-book";
 			sourceTree = "<group>";
@@ -108,6 +135,7 @@
 				EB2B8F332BD2A5240024E485 /* AppDelegate.swift */,
 				EB2B8F3C2BD2A5250024E485 /* Assets.xcassets */,
 				EB2B8F3E2BD2A5250024E485 /* LaunchScreen.storyboard */,
+				EB41AD0F2C46419800564A1D /* CustomNavigationController.swift */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -115,11 +143,13 @@
 		EB2B8F482BD2A5430024E485 /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
-				EB2B8F4B2BD2A5720024E485 /* SessionDelegate.swift */,
 				EB678EC42C36C3570034C893 /* UIViewController+Alert.swift */,
 				EB678EC62C36CCBC0034C893 /* String+Height.swift */,
-				EB01CADC2C415F0B0051935E /* UIButton+Bordered.swift */,
-				EB01CADE2C415F170051935E /* UIButton+Filled.swift */,
+				EB01CADC2C415F0B0051935E /* UIButton+UIBorderedButton.swift */,
+				EB01CADE2C415F170051935E /* UIButton+UIFilledButton.swift */,
+				EB62A32D2C48E3C40068FD7B /* UIViewController+HideKeyboard.swift */,
+				EB62A3372C49299D0068FD7B /* UIActivityIndicatorView+Spinner.swift */,
+				EB62A3412C4947D00068FD7B /* UITapGestureRecognizer+didTapAttributedTextInLabel.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -127,6 +157,8 @@
 		EB2B8F512BD2A5A90024E485 /* Scenes */ = {
 			isa = PBXGroup;
 			children = (
+				EB62A3342C4927380068FD7B /* Home */,
+				EB41AD0C2C463EFA00564A1D /* Account */,
 				EB2B8F522BD2A5B20024E485 /* Welcome */,
 			);
 			path = Scenes;
@@ -145,8 +177,29 @@
 			isa = PBXGroup;
 			children = (
 				EB3304482C340F7F00102F71 /* Welcome.swift */,
+				EB62A3322C4925160068FD7B /* Login.swift */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		EB41AD0B2C463EE600564A1D /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				EB41AD0D2C463F0900564A1D /* LoginViewController.swift */,
+				EB62A3302C48F8440068FD7B /* LoginViewModel.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		EB41AD0C2C463EFA00564A1D /* Account */ = {
+			isa = PBXGroup;
+			children = (
+				EB41AD0B2C463EE600564A1D /* Login */,
+				EB62A33E2C4940460068FD7B /* Register */,
+				EB62A32F2C48F0400068FD7B /* ForgotPassword */,
+				EB8450222C468EA400C2E157 /* Extensions */,
+			);
+			path = Account;
 			sourceTree = "<group>";
 		};
 		EB4B39EB2C1C56E100EFEFD0 /* Network */ = {
@@ -155,6 +208,40 @@
 				EB4B39EE2C1C573C00EFEFD0 /* APICaller.swift */,
 			);
 			path = Network;
+			sourceTree = "<group>";
+		};
+		EB62A32F2C48F0400068FD7B /* ForgotPassword */ = {
+			isa = PBXGroup;
+			children = (
+				EB62A3392C492C810068FD7B /* ForgotPasswordViewController.swift */,
+				EB62A33B2C493D2F0068FD7B /* ForgotPasswordViewModel.swift */,
+			);
+			path = ForgotPassword;
+			sourceTree = "<group>";
+		};
+		EB62A3342C4927380068FD7B /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				EB62A3352C49274C0068FD7B /* HomeViewController.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		EB62A33E2C4940460068FD7B /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				EB62A33F2C4940550068FD7B /* RegisterViewController.swift */,
+			);
+			path = Register;
+			sourceTree = "<group>";
+		};
+		EB8450222C468EA400C2E157 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				EB8450232C468EBC00C2E157 /* UILabel+UIAccountLabel.swift */,
+				EB8450252C46939700C2E157 /* UITextField+UIAccountTextField.swift */,
+			);
+			path = Extensions;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -219,6 +306,7 @@
 			files = (
 				EB2B8F3D2BD2A5250024E485 /* Assets.xcassets in Resources */,
 				EB2B8F402BD2A5250024E485 /* Base in Resources */,
+				EB5640822C46582D0082FCE4 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -271,16 +359,28 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EB41AD102C46419800564A1D /* CustomNavigationController.swift in Sources */,
+				EB8450242C468EBC00C2E157 /* UILabel+UIAccountLabel.swift in Sources */,
 				EB33044B2C340FB000102F71 /* WelcomeViewModel.swift in Sources */,
+				EB62A3362C49274C0068FD7B /* HomeViewController.swift in Sources */,
 				EB678EC72C36CCBC0034C893 /* String+Height.swift in Sources */,
-				EB2B8F4C2BD2A5720024E485 /* SessionDelegate.swift in Sources */,
 				EB4B39EF2C1C573C00EFEFD0 /* APICaller.swift in Sources */,
 				EB3304492C340F7F00102F71 /* Welcome.swift in Sources */,
-				EB01CADD2C415F0B0051935E /* UIButton+Bordered.swift in Sources */,
+				EB62A33A2C492C810068FD7B /* ForgotPasswordViewController.swift in Sources */,
+				EB01CADD2C415F0B0051935E /* UIButton+UIBorderedButton.swift in Sources */,
+				EB62A3402C4940550068FD7B /* RegisterViewController.swift in Sources */,
+				EB62A32E2C48E3C40068FD7B /* UIViewController+HideKeyboard.swift in Sources */,
+				EB62A3312C48F8440068FD7B /* LoginViewModel.swift in Sources */,
 				EB2B8F542BD2A5B90024E485 /* WelcomeViewController.swift in Sources */,
+				EB62A3382C49299D0068FD7B /* UIActivityIndicatorView+Spinner.swift in Sources */,
 				EB2B8F342BD2A5240024E485 /* AppDelegate.swift in Sources */,
 				EB678EC52C36C3570034C893 /* UIViewController+Alert.swift in Sources */,
-				EB01CADF2C415F170051935E /* UIButton+Filled.swift in Sources */,
+				EB01CADF2C415F170051935E /* UIButton+UIFilledButton.swift in Sources */,
+				EB62A33C2C493D2F0068FD7B /* ForgotPasswordViewModel.swift in Sources */,
+				EB62A3422C4947D00068FD7B /* UITapGestureRecognizer+didTapAttributedTextInLabel.swift in Sources */,
+				EB41AD0E2C463F0900564A1D /* LoginViewController.swift in Sources */,
+				EB8450262C46939700C2E157 /* UITextField+UIAccountTextField.swift in Sources */,
+				EB62A3332C4925160068FD7B /* Login.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -350,7 +450,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -407,7 +507,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.4;
+				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -423,12 +523,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "E-book/E-book.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J2X5A4Y973;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "E-book/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
@@ -457,12 +559,14 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
+				CODE_SIGN_ENTITLEMENTS = "E-book/E-book.entitlements";
 				CODE_SIGN_STYLE = Automatic;
 				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = J2X5A4Y973;
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = "E-book/Info.plist";
+				INFOPLIST_KEY_LSApplicationCategoryType = "public.app-category.books";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;

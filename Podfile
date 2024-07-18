@@ -8,4 +8,7 @@ target 'E-book' do
   # Pods for E-book
     pod 'SnapKit'
     pod 'SDWebImage'
+    pod 'Firebase/Core'
+    pod 'Firebase/Auth'
+    pod 'GoogleSignIn'
 end

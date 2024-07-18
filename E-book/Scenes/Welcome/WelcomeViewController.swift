@@ -11,12 +11,7 @@ import SnapKit
 class WelcomeViewController: UIViewController {
     
     private let viewModel = WelcomeViewModel()
-    private let spinner: UIActivityIndicatorView = {
-        let spinner = UIActivityIndicatorView(style: .large)
-        spinner.startAnimating()
-        spinner.hidesWhenStopped = true
-        return spinner
-    }()
+    private let spinner = Spinner()
     
     private let scrollView: UIScrollView = {
         let sv = UIScrollView()
@@ -39,6 +34,7 @@ class WelcomeViewController: UIViewController {
         setupView()
         setupUI()
         fetchData()
+        spinner.startAnimating()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -81,7 +77,7 @@ class WelcomeViewController: UIViewController {
     }
     
     private func fetchData() {
-        viewModel.data(urlSessionDelegate: self) { [weak self] result in
+        viewModel.data { [weak self] result in
             guard let self = self else { return }
             self.spinner.stopAnimating()
             if result {
@@ -111,7 +107,7 @@ class WelcomeViewController: UIViewController {
         let imageView = UIImageView(image: UIImage(named: "writing"))
         imageView.contentMode = .scaleAspectFit
         
-        let label = createLabel(text: "Читай. Переводи. Создавай заметки", font: .systemFont(ofSize: 28, weight: .bold))
+        let label = createLabel(text: "Читай. Переводи. Создавай заметки", font: .boldSystemFont(ofSize: 28))
         
         let text = "Читай. Переводи. Создавай заметки"
         let titleLabelText = NSMutableAttributedString(string: text)
@@ -122,9 +118,12 @@ class WelcomeViewController: UIViewController {
         }
         label.attributedText = titleLabelText
         
-        let registerButton = FilledButton(title: "Зарегистрироваться")
+        let registerButton = UIFilledButton(title: "Зарегистрироваться")
         
-        let loginButton = BorderedButton(title: "Войти")
+        let loginButton = UIBorderedButton(title: "Войти")
+        
+        loginButton.addTarget(self, action: #selector(loginButtonTapped), for: .touchUpInside)
+        registerButton.addTarget(self, action: #selector(registerButtonTapped), for: .touchUpInside)
         
         lastView.addSubview(imageView)
         lastView.addSubview(label)
@@ -149,14 +148,14 @@ class WelcomeViewController: UIViewController {
         }
         
         loginButton.snp.makeConstraints { make in
-            make.width.equalToSuperview().offset(-24)
+            make.width.equalToSuperview().offset(-32)
             make.height.equalTo(48)
             make.bottom.equalToSuperview().offset(-48)
             make.centerX.equalToSuperview()
         }
         
         registerButton.snp.makeConstraints { make in
-            make.width.equalToSuperview().offset(-24)
+            make.width.equalToSuperview().offset(-32)
             make.height.equalTo(48)
             make.bottom.equalTo(loginButton.snp.top).offset(-12)
             make.centerX.equalToSuperview()
@@ -167,8 +166,8 @@ class WelcomeViewController: UIViewController {
     private func createContentSubview(with data: Welcome, width: CGFloat) -> UIView {
         let subView = UIView()
         
-        let titleLabel = createLabel(text: data.title, font: .systemFont(ofSize: 28, weight: .bold))
-        let descriptionLabel = createLabel(text: data.descriptrion, font: .systemFont(ofSize: 16))
+        let titleLabel = createLabel(text: data.title, font: .boldSystemFont(ofSize: 28))
+        let descriptionLabel = createLabel(text: data.descriptrion, font: .systemFont(ofSize: UIFont.systemFontSize))
         
         let titleLabelText = NSMutableAttributedString(string: data.title)
         if let rangeOfLastWord = data.title.range(of: data.title.components(separatedBy: " ").last ?? "") 
@@ -202,6 +201,14 @@ class WelcomeViewController: UIViewController {
         label.numberOfLines = 0
         label.textAlignment = .center
         return label
+    }
+    
+    @objc private func loginButtonTapped() {
+        navigationController?.pushViewController(LoginViewController(), animated: true)
+    }
+    
+    @objc private func registerButtonTapped() {
+        navigationController?.pushViewController(RegisterViewController(), animated: true)
     }
     
 }

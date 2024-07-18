@@ -12,6 +12,8 @@ final class APICaller {
     enum NetworkError: Error {
         case urlError
         case parseError
+        case postError
+        case uncaughtException
     }
     
     enum HttpMethod: String {
@@ -22,8 +24,8 @@ final class APICaller {
     
     static func request<T: Codable> (endpoint: String,
                                      type: T.Type,
-                                     method: HttpMethod,
-                                     urlSessionDelegate: URLSessionDelegate,
+                                     method: HttpMethod = .GET,
+                                     body: [String:Any]? = nil,
                                      completion: @escaping (Result<T, NetworkError>) -> Void)
     {
         guard let url = URL(string: "http://localhost:3000/" + endpoint) else {
@@ -34,8 +36,19 @@ final class APICaller {
         var request = URLRequest(url: url)
         request.httpMethod = method.rawValue
         
+        if let body = body {
+            request.addValue("application/json", forHTTPHeaderField: "Content-Type")
+            do {
+                let jsonData = try JSONSerialization.data(withJSONObject: body)
+                request.httpBody = jsonData
+            } catch {
+                completion(.failure(.uncaughtException))
+                return
+            }
+        }
+        
         URLSession(configuration: .default,
-                   delegate: urlSessionDelegate,
+                   delegate: .none,
                    delegateQueue: .main)
         .dataTask(with: request)
         { data, _, error in
@@ -44,7 +57,6 @@ final class APICaller {
                 return
             }
             do {
-                
                 let json = try JSONDecoder().decode(T.self, from: data)
                 completion(.success(json))
             }
