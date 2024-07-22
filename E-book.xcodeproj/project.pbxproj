@@ -33,6 +33,7 @@
 		EB678EC72C36CCBC0034C893 /* String+Height.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB678EC62C36CCBC0034C893 /* String+Height.swift */; };
 		EB8450242C468EBC00C2E157 /* UILabel+UIAccountLabel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8450232C468EBC00C2E157 /* UILabel+UIAccountLabel.swift */; };
 		EB8450262C46939700C2E157 /* UITextField+UIAccountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8450252C46939700C2E157 /* UITextField+UIAccountTextField.swift */; };
+		EB859A9F2C4E767100E4950F /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB859A9E2C4E767100E4950F /* RegisterViewModel.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -66,6 +67,7 @@
 		EB678EC62C36CCBC0034C893 /* String+Height.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "String+Height.swift"; sourceTree = "<group>"; };
 		EB8450232C468EBC00C2E157 /* UILabel+UIAccountLabel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel+UIAccountLabel.swift"; sourceTree = "<group>"; };
 		EB8450252C46939700C2E157 /* UITextField+UIAccountTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+UIAccountTextField.swift"; sourceTree = "<group>"; };
+		EB859A9E2C4E767100E4950F /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -231,6 +233,7 @@
 			isa = PBXGroup;
 			children = (
 				EB62A33F2C4940550068FD7B /* RegisterViewController.swift */,
+				EB859A9E2C4E767100E4950F /* RegisterViewModel.swift */,
 			);
 			path = Register;
 			sourceTree = "<group>";
@@ -381,6 +384,7 @@
 				EB41AD0E2C463F0900564A1D /* LoginViewController.swift in Sources */,
 				EB8450262C46939700C2E157 /* UITextField+UIAccountTextField.swift in Sources */,
 				EB62A3332C4925160068FD7B /* Login.swift in Sources */,
+				EB859A9F2C4E767100E4950F /* RegisterViewModel.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

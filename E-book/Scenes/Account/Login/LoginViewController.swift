@@ -142,7 +142,7 @@ class LoginViewController: UIViewController {
         
         passwordLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(40)
-            make.top.equalTo(emailTextField.snp.bottom).offset(20)
+            make.top.equalTo(emailTextField.snp.bottom).offset(16)
         }
         
         passwordTextField.snp.makeConstraints { make in
@@ -158,8 +158,8 @@ class LoginViewController: UIViewController {
         }
         
         notAccountLabel.snp.makeConstraints { make in
-            make.width.equalToSuperview().offset(-80)
-            make.centerX.equalToSuperview()
+            make.width.lessThanOrEqualToSuperview().offset(-80)
+            make.left.equalTo(40)
             make.top.equalTo(forgotPasswordBtn.snp.bottom).offset(8)
         }
         
@@ -171,6 +171,7 @@ class LoginViewController: UIViewController {
         }
         
         spinner.center = view.center
+        
     }
     
     private func setupSignInWithGoogleBtn() {
@@ -200,21 +201,23 @@ class LoginViewController: UIViewController {
     
     @objc private func signInBtnTapped() {
         guard let email = emailTextField.text?.trimmingCharacters(in: .whitespaces), !email.isEmpty,
-              let password = passwordTextField.text?.trimmingCharacters(in: .whitespaces), !password.isEmpty
+              let password = passwordTextField.text, !password.isEmpty
         else {
-            alert(alertTitle: "Error", message: "Email or Password are wrong", actionTitle: "OK")
+            alert(alertTitle: "Error", message: "All fields are required", actionTitle: "OK")
             return
         }
         spinner.startAnimating()
+        view.isUserInteractionEnabled = false
         viewModel.login(email: email, password: password) { [weak self] result in
             if let result = result, result.success {
                 UserDefaults.standard.setValue(result.clientID, forKey: "clientID")
-                self?.navigationController?.pushViewController(HomeViewController(), animated: true)
+                self?.navigationController?.setViewControllers([HomeViewController()], animated: true)
             }
             else {
                 self?.alert(alertTitle: "Error", message: "Email or Password are wrong", actionTitle: "OK")
             }
             self?.spinner.stopAnimating()
+            self?.view.isUserInteractionEnabled = true
         }
     }
     
@@ -222,6 +225,7 @@ class LoginViewController: UIViewController {
         guard let text = notAccountLabel.text else { return }
         
         let specifiedWordRange = (text as NSString).range(of: "Зарегистрироваться")
+        print(specifiedWordRange)
         if gesture.didTapAttributedTextInLabel(label: notAccountLabel, inRange: specifiedWordRange) {
             navigationController?.pushViewController(RegisterViewController(), animated: true)
         }
