@@ -10,13 +10,15 @@ import Foundation
 final class RegisterViewModel {
     func register (email: String, password: String, completion: @escaping (Login?) -> Void) {
         let body = ["email": email, "password": password]
-        APICaller.request(endpoint: "register", type: Login.self, method: .POST, body: body)
-        { result in
-            switch result {
-            case let .success(data):
-                completion(data)
-            case .failure:
-                completion(nil)
+        DispatchQueue.main.async {
+            APICaller.request(endpoint: "register", type: Login.self, method: .POST, body: body)
+            { result in
+                switch result {
+                case let .success(data):
+                    completion(data)
+                case .failure:
+                    completion(nil)
+                }
             }
         }
     }

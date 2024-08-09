@@ -32,7 +32,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
             window?.rootViewController = CustomNavigationController(rootViewController: WelcomeViewController())
             UserDefaults.standard.setValue(true, forKey: "isOpened")
         } else if clientID != nil {
-            window?.rootViewController = CustomNavigationController(rootViewController: HomeViewController())
+            window?.rootViewController = TabBarViewController()
         } else {
             window?.rootViewController = CustomNavigationController(rootViewController: LoginViewController())
         }

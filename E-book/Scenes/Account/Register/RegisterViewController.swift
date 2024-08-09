@@ -154,7 +154,7 @@ class RegisterViewController: UIViewController {
         viewModel.register(email: email, password: password) { [weak self] result in
             if let result = result, result.success {
                 UserDefaults.standard.setValue(result.clientID, forKey: "clientID")
-                self?.navigationController?.setViewControllers([HomeViewController()], animated: true)
+                self?.navigationController?.setViewControllers([TabBarViewController()], animated: true)
             }
             else {
                 self?.alert(alertTitle: "Error", message: "Something went wrong. Try again.", actionTitle: "OK")

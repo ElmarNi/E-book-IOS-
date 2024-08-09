@@ -10,17 +10,19 @@ import Foundation
 final class ForgotPasswordViewModel {
     func forgotPassword (email: String, completion: @escaping (Bool) -> Void) {
         let body = ["email": email]
-        APICaller.request(endpoint: "forgotPassword", type: [String: Bool].self, method: .POST, body: body)
-        { result in
-            switch result {
-            case let .success(data):
-                if let success = data["success"] {
-                    completion(success)
-                    return
+        DispatchQueue.main.async {
+            APICaller.request(endpoint: "forgotPassword", type: [String: Bool].self, method: .POST, body: body)
+            { result in
+                switch result {
+                case let .success(data):
+                    if let success = data["success"] {
+                        completion(success)
+                        return
+                    }
+                    completion(false)
+                case .failure:
+                    completion(false)
                 }
-                completion(false)
-            case .failure:
-                completion(false)
             }
         }
     }
