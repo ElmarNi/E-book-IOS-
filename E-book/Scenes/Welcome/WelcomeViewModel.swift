@@ -11,16 +11,14 @@ final class WelcomeViewModel {
     var dataSource = [Welcome]()
     
     func data(completion: @escaping (Bool) -> Void) {
-        DispatchQueue.main.async {
-            APICaller.request(endpoint: "welcome", type: [Welcome].self)
-            {[weak self] result in
-                switch result {
-                case let .success(data):
-                    self?.dataSource = data
-                    completion(true)
-                case .failure(_):
-                    completion(false)
-                }
+        APICaller.request(endpoint: "welcome", type: [Welcome].self)
+        {[weak self] result in
+            switch result {
+            case let .success(data):
+                self?.dataSource = data
+                completion(true)
+            case .failure(_):
+                completion(false)
             }
         }
     }

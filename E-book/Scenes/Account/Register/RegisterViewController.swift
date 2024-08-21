@@ -48,7 +48,7 @@ class RegisterViewController: UIViewController {
         super.viewDidLoad()
 
         setupView()
-        setupUI()
+        setupConstraints()
     }
     
     private func setupView() {
@@ -82,7 +82,7 @@ class RegisterViewController: UIViewController {
         hasAccountLabel.addGestureRecognizer(tap)
     }
     
-    private func setupUI() {
+    private func setupConstraints() {
         emailLabel.snp.makeConstraints { make in
             make.left.equalToSuperview().offset(40)
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top).offset(16)
@@ -152,15 +152,18 @@ class RegisterViewController: UIViewController {
         spinner.startAnimating()
         view.isUserInteractionEnabled = false
         viewModel.register(email: email, password: password) { [weak self] result in
-            if let result = result, result.success {
-                UserDefaults.standard.setValue(result.clientID, forKey: "clientID")
-                self?.navigationController?.setViewControllers([TabBarViewController()], animated: true)
+            DispatchQueue.main.async {
+                if let result = result, result.success {
+                    UserDefaults.standard.setValue(result.clientID, forKey: "clientID")
+                    self?.navigationController?.setViewControllers([TabBarViewController()], animated: true)
+                }
+                else {
+                    self?.alert(alertTitle: "Error", message: "Something went wrong. Try again.", actionTitle: "OK")
+                }
+                
+                self?.spinner.stopAnimating()
+                self?.view.isUserInteractionEnabled = true
             }
-            else {
-                self?.alert(alertTitle: "Error", message: "Something went wrong. Try again.", actionTitle: "OK")
-            }
-            self?.spinner.stopAnimating()
-            self?.view.isUserInteractionEnabled = true
         }
     }
     

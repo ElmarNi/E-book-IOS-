@@ -47,10 +47,23 @@ extension HomeViewController: UICollectionViewDelegate, UICollectionViewDataSour
         let (title, count) = sectionHeaderTitleAndCount(for: indexPath.section)
         headerView.configure(title: title, count: count)
         headerView.onAction = { [weak self] in
-            self?.navigationController?.pushViewController(BooksViewController(), animated: true)
+            self?.navigationController?.pushViewController(BooksViewController(title: title,
+                                                                               recommendedBooks: indexPath.section == 1,
+                                                                               newBooks: indexPath.section == 2),
+                                                           animated: true)
         }
         
         return headerView
+    }
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        switch indexPath.section {
+        case 0:
+            navigationController?.pushViewController(BooksViewController(categoryId: viewModel.category(at: indexPath).id,
+                                                                         title: viewModel.category(at: indexPath).name),
+                                                     animated: true)
+        default:
+            navigationController?.pushViewController(BookViewController(), animated: true)
+        }
     }
     
     private func configureCategoryCell(_ collectionView: UICollectionView, indexPath: IndexPath) -> UICollectionViewCell {

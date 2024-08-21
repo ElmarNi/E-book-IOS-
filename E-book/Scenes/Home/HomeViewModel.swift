@@ -13,6 +13,9 @@ final class HomeViewModel {
     var recommendedBooks = [BookShortInfo]()
     var newBooks = [BookShortInfo]()
     
+    var books: BookList?
+    var audioBooks: BookList?
+    
     enum `Type`: String {
         case book
         case audioBook
@@ -54,21 +57,32 @@ final class HomeViewModel {
         return newBooks[indexPath.row]
     }
     
-    func data(type: Type, completion: @escaping (Bool) -> Void) {
-        let body: [String: Any] = ["type": type.rawValue]
-        DispatchQueue.main.async {
-            APICaller.request(endpoint: "home", type: HomeResponse.self, method: .POST, body: body)
-            {[weak self] result in
-                switch result {
-                case let .success(data):
-                    self?.categories = data.categories
-                    self?.recommendedBooks = data.recommendedBooks
-                    self?.newBooks = data.newBooks
-                    completion(true)
-                case .failure(_):
-                    completion(false)
-                }
+    func data(completion: @escaping (Bool) -> Void) {
+        APICaller.request(endpoint: "home", type: HomeResponse.self, method: .GET)
+        {[weak self] result in
+            switch result {
+            case let .success(data):
+                self?.categories = data.categories
+                self?.books = data.books
+                self?.audioBooks = data.audioBooks
+                completion(true)
+            case .failure(_):
+                completion(false)
             }
+        }
+    }
+    
+    func changeBooks(type: Type) {
+        newBooks.removeAll()
+        recommendedBooks.removeAll()
+        if type == .audioBook {
+            audioBooks?.newBooks.forEach { newBooks.append($0) }
+            audioBooks?.recommendedBooks.forEach { recommendedBooks.append($0) }
+        }
+        
+        if type == .book {
+            books?.newBooks.forEach { newBooks.append($0) }
+            books?.recommendedBooks.forEach { recommendedBooks.append($0) }
         }
     }
 }

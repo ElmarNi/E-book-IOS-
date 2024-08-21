@@ -32,6 +32,7 @@ class HomeViewController: UIViewController {
         cv.showsVerticalScrollIndicator = false
         cv.delegate = self
         cv.dataSource = self
+        cv.isHidden = true
         return cv
     }()
     
@@ -51,6 +52,7 @@ class HomeViewController: UIViewController {
         view.addSubview(segmentControl)
         view.addSubview(collectionView)
         view.addSubview(spinner)
+        segmentControl.addTarget(self, action: #selector(segmentControlValueChanged), for: .valueChanged)
         spinner.startAnimating()
     }
     
@@ -82,19 +84,30 @@ class HomeViewController: UIViewController {
     }
     
     private func fetchData() {
-        viewModel.data(type: .book) { [weak self] result in
-            guard let self = self else { return }
-            if result {
-                self.collectionView.reloadData()
-            } else {
-                self.alert(alertTitle: "Error", message: "Something went wrong", actionTitle: "Ok")
+        viewModel.data { [weak self] result in
+            DispatchQueue.main.async {
+                guard let self = self else { return }
+                if result {
+                    self.viewModel.changeBooks(type: .book)
+                    self.collectionView.reloadData()
+                    self.collectionView.isHidden = false
+                } else {
+                    self.alert(alertTitle: "Error", message: "Something went wrong", actionTitle: "Ok")
+                }
+                self.spinner.stopAnimating()
             }
-            self.spinner.stopAnimating()
         }
     }
     
     @objc private func segmentControlValueChanged(_ sender: UISegmentedControl) {
+        switch sender.selectedSegmentIndex {
+        case 0: viewModel.changeBooks(type: .book)
+        default : viewModel.changeBooks(type: .audioBook)
+        }
         
+        DispatchQueue.main.async {[weak self] in
+            self?.collectionView.reloadData()
+        }
     }
     
 }

@@ -66,7 +66,7 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        setupUI()
+        setupConstraints()
         configureGoogleSignIn()
     }
     
@@ -101,7 +101,7 @@ class LoginViewController: UIViewController {
         setupSignInWithGoogleBtn()
     }
     
-    private func setupUI() {
+    private func setupConstraints() {
         signInWithGoogleBtn.snp.makeConstraints { make in
             make.width.equalToSuperview().offset(-32)
             make.height.equalTo(48)
@@ -206,18 +206,21 @@ class LoginViewController: UIViewController {
             alert(alertTitle: "Error", message: "All fields are required", actionTitle: "OK")
             return
         }
+        
         spinner.startAnimating()
         view.isUserInteractionEnabled = false
         viewModel.login(email: email, password: password) { [weak self] result in
-            if let result = result, result.success {
-                UserDefaults.standard.setValue(result.clientID, forKey: "clientID")
-                self?.navigationController?.setViewControllers([TabBarViewController()], animated: true)
+            DispatchQueue.main.async {
+                if let result = result, result.success {
+                    UserDefaults.standard.setValue(result.clientID, forKey: "clientID")
+                    self?.navigationController?.setViewControllers([TabBarViewController()], animated: true)
+                }
+                else {
+                    self?.alert(alertTitle: "Error", message: "Email or Password are wrong", actionTitle: "OK")
+                }
+                self?.spinner.stopAnimating()
+                self?.view.isUserInteractionEnabled = true
             }
-            else {
-                self?.alert(alertTitle: "Error", message: "Email or Password are wrong", actionTitle: "OK")
-            }
-            self?.spinner.stopAnimating()
-            self?.view.isUserInteractionEnabled = true
         }
     }
     
@@ -225,7 +228,6 @@ class LoginViewController: UIViewController {
         guard let text = notAccountLabel.text else { return }
         
         let specifiedWordRange = (text as NSString).range(of: "Зарегистрироваться")
-        print(specifiedWordRange)
         if gesture.didTapAttributedTextInLabel(label: notAccountLabel, inRange: specifiedWordRange) {
             navigationController?.pushViewController(RegisterViewController(), animated: true)
         }

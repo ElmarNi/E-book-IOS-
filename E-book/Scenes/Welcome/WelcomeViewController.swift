@@ -32,7 +32,7 @@ class WelcomeViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         setupView()
-        setupUI()
+        setupConstraints()
         fetchData()
         spinner.startAnimating()
     }
@@ -62,7 +62,7 @@ class WelcomeViewController: UIViewController {
           scrollView.delegate = self
       }
     
-    private func setupUI() {
+    private func setupConstraints() {
         scrollView.snp.makeConstraints { make in
             make.left.right.equalToSuperview()
             make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
@@ -79,11 +79,13 @@ class WelcomeViewController: UIViewController {
     private func fetchData() {
         viewModel.data { [weak self] result in
             guard let self = self else { return }
-            self.spinner.stopAnimating()
-            if result {
-                self.setupScrollViewContent()
-            } else {
-                self.alert(alertTitle: "Error", message: "Something went wrong", actionTitle: "OK")
+            DispatchQueue.main.async {
+                self.spinner.stopAnimating()
+                if result {
+                    self.setupScrollViewContent()
+                } else {
+                    self.alert(alertTitle: "Error", message: "Something went wrong", actionTitle: "OK")
+                }
             }
         }
     }

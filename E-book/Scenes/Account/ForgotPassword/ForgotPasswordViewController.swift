@@ -31,7 +31,7 @@ class ForgotPasswordViewController: UIViewController {
         super.viewDidLoad()
         
         setupView()
-        setupUI()
+        setupConstraints()
     }
     
     private func setupView() {
@@ -47,7 +47,7 @@ class ForgotPasswordViewController: UIViewController {
         self.hideKeyboardWhenTappedAround()
     }
     
-    private func setupUI() {
+    private func setupConstraints() {
         
         descriptionLabel.snp.makeConstraints { make in
             make.width.equalToSuperview().offset(-80)
@@ -84,15 +84,19 @@ class ForgotPasswordViewController: UIViewController {
             alert(alertTitle: "Error", message: "Email can not be empty", actionTitle: "OK")
             return
         }
+        
         spinner.startAnimating()
+        
         viewModel.forgotPassword(email: email) {[weak self] result in
-            if result {
-                self?.alert(alertTitle: "Success", message: "We sent a mail for reset password", actionTitle: "OK")
+            DispatchQueue.main.async { [weak self] in
+                if result {
+                    self?.alert(alertTitle: "Success", message: "We sent a mail for reset password", actionTitle: "OK")
+                }
+                else {
+                    self?.alert(alertTitle: "Error", message: "Email is wrong", actionTitle: "OK")
+                }
+                self?.spinner.stopAnimating()
             }
-            else {
-                self?.alert(alertTitle: "Error", message: "Email is wrong", actionTitle: "OK")
-            }
-            self?.spinner.stopAnimating()
         }
     }
 
