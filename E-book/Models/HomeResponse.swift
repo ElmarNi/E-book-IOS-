@@ -9,12 +9,8 @@ import Foundation
 
 struct HomeResponse: Codable {
     let categories: [Category]
-    let books: BookList
-    let audioBooks: BookList
+    let recommendedBooks: [BookShortInfo]
+    let newBooks: [BookShortInfo]
     let success: Bool
 }
 
-struct BookList: Codable {
-    let recommendedBooks: [BookShortInfo]
-    let newBooks: [BookShortInfo]
-}

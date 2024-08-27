@@ -11,6 +11,7 @@ import SnapKit
 class BookTableViewCell: UITableViewCell {
     
     static let identifier = "BookTableViewCell"
+    var onAction: (() -> Void)? = nil
     
     private let titleLabel: UILabel = {
         let label = UILabel()
@@ -40,6 +41,7 @@ class BookTableViewCell: UITableViewCell {
     
     private let moreBtn: UIButton = {
         let btn = UIButton()
+        btn.setTitle("t", for: .normal)
         btn.setImage(UIImage(named: "more"), for: .normal)
         return btn
     }()
@@ -55,7 +57,7 @@ class BookTableViewCell: UITableViewCell {
         addSubview(ratingLabel)
         addSubview(titleLabel)
         addSubview(authorLabel)
-        addSubview(moreBtn)
+        contentView.addSubview(moreBtn)
         moreBtn.addTarget(self, action: #selector(moreBtnTapped), for: .touchUpInside)
         setupUI()
     }
@@ -98,7 +100,7 @@ class BookTableViewCell: UITableViewCell {
     }
     
     @objc private func moreBtnTapped() {
-        print("1")
+        onAction?()
     }
     
     func configure(with book: BookShortInfo) {

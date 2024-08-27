@@ -13,16 +13,6 @@ class HomeViewController: UIViewController {
     
     private let spinner = Spinner()
     
-    private let segmentControl: UISegmentedControl = {
-        let sc = UISegmentedControl(items: ["Книги", "Аудиокниги"])
-        sc.selectedSegmentIndex = 0
-        sc.backgroundColor = .white
-        sc.selectedSegmentTintColor = UIColor(red: 1.00, green: 0.84, blue: 0.80, alpha: 1.00)
-        sc.setTitleTextAttributes([.foregroundColor: UIColor(red: 0.56, green: 0.16, blue: 0.07, alpha: 1.00)], for: .selected)
-        sc.setTitleTextAttributes([.foregroundColor: UIColor(red: 0.56, green: 0.16, blue: 0.07, alpha: 1.00)], for: .normal)
-        return sc
-    }()
-    
     private lazy var collectionView: UICollectionView = {
         let layout = HomeViewController.createCompositionalLayout()
         let cv = UICollectionView(frame: .zero, collectionViewLayout: layout)
@@ -40,7 +30,6 @@ class HomeViewController: UIViewController {
         super.viewDidLoad()
         setupView()
         setupConstraints()
-        hideSegmentControlBackground(segmentControl)
         fetchData()
     }
     
@@ -49,24 +38,14 @@ class HomeViewController: UIViewController {
         collectionView.backgroundColor = view.backgroundColor
         
         title = "Книги для тебя"
-        view.addSubview(segmentControl)
         view.addSubview(collectionView)
         view.addSubview(spinner)
-        segmentControl.addTarget(self, action: #selector(segmentControlValueChanged), for: .valueChanged)
         spinner.startAnimating()
     }
     
     private func setupConstraints() {
-        segmentControl.snp.makeConstraints { (make) in
-            make.top.equalTo(view.safeAreaLayoutGuide.snp.top)
-            make.left.equalToSuperview().offset(16)
-            make.right.equalToSuperview().offset(-16)
-            make.height.equalTo(36)
-        }
-        
         collectionView.snp.makeConstraints { make in
-            make.top.equalTo(segmentControl.snp.bottom).offset(16)
-            make.bottom.equalToSuperview()
+            make.bottom.top.equalToSuperview()
             make.left.equalToSuperview().offset(16)
             make.right.equalToSuperview().offset(-16)
         }
@@ -74,21 +53,11 @@ class HomeViewController: UIViewController {
         spinner.center = view.center
     }
     
-    private func hideSegmentControlBackground(_ segmentControl: UISegmentedControl) {
-        DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-            for i in 0...(segmentControl.numberOfSegments-1)  {
-                let backgroundSegmentView = segmentControl.subviews[i]
-                backgroundSegmentView.isHidden = true
-            }
-        }
-    }
-    
     private func fetchData() {
         viewModel.data { [weak self] result in
             DispatchQueue.main.async {
                 guard let self = self else { return }
                 if result {
-                    self.viewModel.changeBooks(type: .book)
                     self.collectionView.reloadData()
                     self.collectionView.isHidden = false
                 } else {
@@ -96,17 +65,6 @@ class HomeViewController: UIViewController {
                 }
                 self.spinner.stopAnimating()
             }
-        }
-    }
-    
-    @objc private func segmentControlValueChanged(_ sender: UISegmentedControl) {
-        switch sender.selectedSegmentIndex {
-        case 0: viewModel.changeBooks(type: .book)
-        default : viewModel.changeBooks(type: .audioBook)
-        }
-        
-        DispatchQueue.main.async {[weak self] in
-            self?.collectionView.reloadData()
         }
     }
     

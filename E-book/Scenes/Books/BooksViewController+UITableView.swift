@@ -20,6 +20,12 @@ extension BooksViewController: UITableViewDelegate, UITableViewDataSource {
             return UITableViewCell()
         }
         cell.configure(with: viewModel.book(at: indexPath))
+        cell.onAction = { [weak self] in
+            guard let book = self?.viewModel.book(at: indexPath) else { return }
+            let bottomSheetVc = BottomSheetViewController(book: book)
+            self?.present(bottomSheetVc, animated: true)
+            
+        }
         return cell
     }
     

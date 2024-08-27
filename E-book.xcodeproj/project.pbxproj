@@ -46,6 +46,7 @@
 		EB8450262C46939700C2E157 /* UITextField+UIAccountTextField.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8450252C46939700C2E157 /* UITextField+UIAccountTextField.swift */; };
 		EB859A9F2C4E767100E4950F /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB859A9E2C4E767100E4950F /* RegisterViewModel.swift */; };
 		EB8E06D22C6B2278004E5210 /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EB8E06D12C6B2278004E5210 /* BookViewController.swift */; };
+		EBD0E8EF2C7CEA8900527025 /* BottomSheetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD0E8EE2C7CEA8900527025 /* BottomSheetViewController.swift */; };
 		EBD2505B2C662CC500CB6929 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = EBD2505A2C662CC500CB6929 /* Assets.xcassets */; };
 		EBD2505F2C66481400CB6929 /* BooksViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBD2505E2C66481400CB6929 /* BooksViewController.swift */; };
 		EBF3F40E2C50D2DA000D3208 /* TabBarViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EBF3F40D2C50D2DA000D3208 /* TabBarViewController.swift */; };
@@ -99,6 +100,7 @@
 		EB8450252C46939700C2E157 /* UITextField+UIAccountTextField.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField+UIAccountTextField.swift"; sourceTree = "<group>"; };
 		EB859A9E2C4E767100E4950F /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		EB8E06D12C6B2278004E5210 /* BookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
+		EBD0E8EE2C7CEA8900527025 /* BottomSheetViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BottomSheetViewController.swift; sourceTree = "<group>"; };
 		EBD2505A2C662CC500CB6929 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		EBD2505E2C66481400CB6929 /* BooksViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BooksViewController.swift; sourceTree = "<group>"; };
 		EBF3F40D2C50D2DA000D3208 /* TabBarViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TabBarViewController.swift; sourceTree = "<group>"; };
@@ -324,6 +326,7 @@
 				EB3934322C6E1073006A38F7 /* BooksViewController+UITableView.swift */,
 				EB3934342C6E1092006A38F7 /* BookTableViewCell.swift */,
 				EB3934362C6E10B0006A38F7 /* BooksViewModel.swift */,
+				EBD0E8EE2C7CEA8900527025 /* BottomSheetViewController.swift */,
 			);
 			path = Books;
 			sourceTree = "<group>";
@@ -507,6 +510,7 @@
 				EBF3F4132C50D3F3000D3208 /* SearchViewController.swift in Sources */,
 				EB678EC52C36C3570034C893 /* UIViewController+Alert.swift in Sources */,
 				EB3934372C6E10B0006A38F7 /* BooksViewModel.swift in Sources */,
+				EBD0E8EF2C7CEA8900527025 /* BottomSheetViewController.swift in Sources */,
 				EBF3F40E2C50D2DA000D3208 /* TabBarViewController.swift in Sources */,
 				EB01CADF2C415F170051935E /* UIButton+UIFilledButton.swift in Sources */,
 				EBF3F4192C50E6F4000D3208 /* UIImage+Resize.swift in Sources */,
@@ -586,7 +590,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -643,7 +647,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
@@ -671,7 +675,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -707,7 +711,7 @@
 				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
-				IPHONEOS_DEPLOYMENT_TARGET = 14.0;
+				IPHONEOS_DEPLOYMENT_TARGET = 15.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

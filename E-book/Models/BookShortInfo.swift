@@ -12,4 +12,11 @@ struct BookShortInfo: Codable {
     let name: String
     let author: String
     let rating: Int
+    let hasBook: Bool?
+    let status: [BookStatus]?
+}
+
+struct BookStatus: Codable {
+    let name: String
+    let active: Bool
 }
